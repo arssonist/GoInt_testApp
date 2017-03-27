@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.main-section {
+
+}
+.main-col1 {
+  background-color: green;
+
+}
+.main-col2 {
+  background-color: blue;
+
+}
+.main-col3 {
+  background-color: red;
+
+}
+.main-col4 {
+  background-color: violet;
+
+}
+footer{
+  text-align: center;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  font-size: 12px;
+  background:#222;
+  color:#999;
+  border-radius: 4px;
+}
+.dog-cards {
+  border:solid black;
+  margin-bottom:5px;
+  text-align: center;
+  min-height:200px;
+}
+.wrap{
+  margin-right: 40px;
+  margin-left: 40px;
+}

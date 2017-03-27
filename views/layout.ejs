@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+      <% include partials/head.ejs %>
+
+    <section class="header-section">
+      <%- include partials/header.ejs %>
+    </section>
+
+    <main class="main-section">
+  <!-- body inject from the home page -->
+      <%- body %>
+
+    </main>
+      <%- include partials/footer.ejs %>
+  </body>
+      <%- include partials/jsdefaults.ejs %>
+
+</html>
