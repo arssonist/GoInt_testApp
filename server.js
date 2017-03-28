@@ -12,6 +12,15 @@ var express = require('express'),
     shopifyAPI = require('shopify-node-api')
     // mongoose = require('mongoose')
 
+    // if we have json, we will parse it
+// app.use(bodyParser.json())
+
+app.use(bodyParser.urlencoded( {extended: true}));
+app.use(bodyParser.json());
+
+// data coming from website form
+// app.use(bodyParser.urlencoded({extended:false}));
+
 ///////SHOPIFY//////////////
   var Shopify = new shopifyAPI({
     shop: 'gointegrations-devtest', // MYSHOP.myshopify.com
@@ -22,33 +31,30 @@ var express = require('express'),
 
   var auth_url = Shopify.buildAuthURL();
 
-
-  // app.get('/shopify_login', function(req,res){
-  //   res.redirect(auth_url)
-  // })
-  // app.get('/finish_auth', function(req, res){
-  //
-  //   var Shopify = new shopifyAPI(config), // You need to pass in your config here
-  //     query_params = req.query;
-  //   });
-app.use(req,res,next){
+  app.use(function(req,res,next){
 
     Shopify.get('/admin/products.json', function(err, data, headers){
-    console.log(data);
-  console.log(headers);
+
   });
-}
+  // console.log("request");
+  res.send(req.headers1);
+  // res.send(req.mehtod, req.url)
+  next()
+});
+//
+// app.use('/', function (req, res, next) {
+//   console.log('Request URL:', req.originalUrl)
+//   next()
+// }, function (req, res, next) {
+//   console.log('Request Type:', req.method)
+//   next()
+// })
+//
 
-  // request(auth_url, function(error, response, body) {
-  //   console.log('error:', error); // Print the error if one occurred
-  //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  //     console.log('body:', body)
-  //   })
 
-  // res.redirect(auth_url);
 
-app.use(bodyParser.urlencoded( {extended: true}));
-app.use(bodyParser.json());
+
+
 
 //////////////SERVE STATIC//////////////
 app.use(express.static(__dirname + '/public'))
